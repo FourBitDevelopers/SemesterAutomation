@@ -39,7 +39,7 @@ namespace UoKSemesterAutomation.DataAccess.InMemory
 
         public void Update(Student student)
         {
-            Student studentToUpdate = students.Find(c => c.StudentId == student.StudentId);
+            Student studentToUpdate = students.Find(c => c.Id == student.Id);
 
             if (studentToUpdate != null)
             {
@@ -55,7 +55,7 @@ namespace UoKSemesterAutomation.DataAccess.InMemory
         //Find Product
         public Student Find(string Id)
         {
-            Student StudentToFind = students.Find(c => c.StudentId== Id);
+            Student StudentToFind = students.Find(c => c.Id== Id);
             if (StudentToFind != null)
             {
                 return StudentToFind;
@@ -76,7 +76,7 @@ namespace UoKSemesterAutomation.DataAccess.InMemory
         //Delete Product
         public void Delete(string Id)
         {
-            Student studentToDelete = students.Find(c => c.StudentId == Id);
+            Student studentToDelete = students.Find(c => c.Id == Id);
             if (studentToDelete != null)
             {
                 students.Remove(studentToDelete);

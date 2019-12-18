@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace UoKSemesterAutomation.Core.Models
 {
-    public class Student
+    public class Student : BaseEntity
     {
-        public string StudentId { get; set; }
+      
 
         [StringLength(40)]
         [DisplayName("Student Name")]
@@ -23,19 +23,17 @@ namespace UoKSemesterAutomation.Core.Models
         public string RollNumber { get; set; }
         public string Major { get; set; }
         public string Section { get; set; }
+        
         public string Year { get; set; }
         public string Department { get; set; }
         [EmailAddress]
         public string Email { get; set; }
         public string Image { get; set; }
         public string Shift { get; set; }
-        public bool Repeater { get; set; }
+        public bool IsRepeater { get; set; }
 
 
 
-        public Student()
-        {
-            this.StudentId = Guid.NewGuid().ToString();
-        }
+       
     }
 }

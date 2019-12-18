@@ -120,7 +120,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DepatmentManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,6 +164,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\StudentManager\Index.cshtml" />
+    <Content Include="Views\StudentManager\Create.cshtml" />
+    <Content Include="Views\StudentManager\Edit.cshtml" />
+    <Content Include="Views\StudentManager\Delete.cshtml" />
+    <Content Include="Views\DepatmentManager\Index.cshtml" />
+    <Content Include="Views\DepatmentManager\Create.cshtml" />
+    <Content Include="Views\DepatmentManager\Edit.cshtml" />
+    <Content Include="Views\DepatmentManager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -179,6 +189,24 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UoKSemesterAutomation.Core\UoKSemesterAutomation.Core.csproj">
+      <Project>{7414a16d-53f1-4f0e-986e-a03020ec3ab0}</Project>
+      <Name>UoKSemesterAutomation.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UoKSemesterAutomation.DataAccess.InMemory\UoKSemesterAutomation.DataAccess.InMemory.csproj">
+      <Project>{1f152eb3-e8da-4477-aa43-3bba5bc07d93}</Project>
+      <Name>UoKSemesterAutomation.DataAccess.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UoKSemesterAutomation.DataAccess.SQL\UoKSemesterAutomation.DataAccess.SQL.csproj">
+      <Project>{b4cbddfb-20a4-4fcd-ba58-ba66911254e3}</Project>
+      <Name>UoKSemesterAutomation.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UoKSemesterAutomation.Services\UoKSemesterAutomation.Services.csproj">
+      <Project>{045911a7-87df-4e59-89a1-8f67bd6e5cd0}</Project>
+      <Name>UoKSemesterAutomation.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
