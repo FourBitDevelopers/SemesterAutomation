@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UoKSemesterAutomation.Core.Contracts;
 using UoKSemesterAutomation.Core.Models;
 using UoKSemesterAutomation.Core.ViewModel;
 using UoKSemesterAutomation.DataAccess.InMemory;
@@ -13,16 +14,16 @@ namespace UoKSemesterAutomation.WebUI.Controllers
     {
         //IRepository<Product> repository;
         //IRepository<ProductCategory> product_categories;
-        InMemoryRepository<Student> studentContext;
-        InMemoryRepository<Department> DepartmentContext;
+        IRepository<Student> studentContext;
+        IRepository<Department> DepartmentContext;
         //StudentRepository studentContext;
         //DepartmentRepository DepartmentContext;
 
         //Initalize our products repository 
-        public StudentManagerController()
+        public StudentManagerController(IRepository<Student> studentcontext,IRepository<Department> departmentcontext)
         {
-            studentContext = new InMemoryRepository<Student>();
-            DepartmentContext = new InMemoryRepository<Department>();
+            studentContext = studentcontext;
+            DepartmentContext = departmentcontext;
 
         }
 

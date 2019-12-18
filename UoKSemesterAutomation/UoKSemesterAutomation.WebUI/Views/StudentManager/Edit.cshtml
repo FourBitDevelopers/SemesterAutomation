@@ -107,8 +107,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.student.Shift, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.student.Shift, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.student.Shift, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(x => x.student.Shift, new List<SelectListItem>
+     {
+                         new SelectListItem() {Text = "Morning", Value="Morning"},
+                         new SelectListItem() {Text = "Evening", Value="Evening"},
+
+    })
             </div>
         </div>
 
