@@ -4,6 +4,7 @@ using Unity;
 using UoKSemesterAutomation.Core.Contracts;
 using UoKSemesterAutomation.Core.Models;
 using UoKSemesterAutomation.DataAccess.InMemory;
+using UoKSemesterAutomation.DataAccess.SQL;
 
 namespace UoKSemesterAutomation.WebUI
 {
@@ -45,8 +46,10 @@ namespace UoKSemesterAutomation.WebUI
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-             container.RegisterType<IRepository<Student>, InMemoryRepository<Student>>();
-             container.RegisterType<IRepository<Department>, InMemoryRepository<Department>>();
+            //container.RegisterType<IRepository<Student>, InMemoryRepository<Student>>();
+
+            container.RegisterType<IRepository<Student>, SqlRepository<Student>>();
+            container.RegisterType<IRepository<Department>,SqlRepository<Department>>();
         }
     }
 }

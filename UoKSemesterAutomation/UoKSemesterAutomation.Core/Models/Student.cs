@@ -32,6 +32,9 @@ namespace UoKSemesterAutomation.Core.Models
         public string Shift { get; set; }
         public bool IsRepeater { get; set; }
 
+        public string ClassTableId { get; set; }
+        public string RepeaterId { get; set; }
+
 
 
        

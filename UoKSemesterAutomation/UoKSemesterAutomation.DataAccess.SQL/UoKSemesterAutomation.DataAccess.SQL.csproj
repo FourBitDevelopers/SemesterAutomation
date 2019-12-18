@@ -49,7 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext.cs" />
+    <Compile Include="Migrations\201912181651139_Initial.cs" />
+    <Compile Include="Migrations\201912181651139_Initial.Designer.cs">
+      <DependentUpon>201912181651139_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -60,6 +66,11 @@
       <Project>{7414A16D-53F1-4F0E-986E-A03020EC3AB0}</Project>
       <Name>UoKSemesterAutomation.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912181651139_Initial.resx">
+      <DependentUpon>201912181651139_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

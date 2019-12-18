@@ -47,8 +47,11 @@
   <ItemGroup>
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\ClassTable.cs" />
     <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Repeaters.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\StudentManagerViewModel.cs" />
   </ItemGroup>

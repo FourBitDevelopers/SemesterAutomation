@@ -8,7 +8,7 @@ using UoKSemesterAutomation.Core.Models;
 
 namespace UoKSemesterAutomation.DataAccess.SQL
 {
-    class DataContext : DbContext
+    public class DataContext : DbContext
     {
         public DataContext()
             : base("DefaultConnection")
@@ -18,6 +18,9 @@ namespace UoKSemesterAutomation.DataAccess.SQL
 
         public DbSet<Student> students { get; set; }
         public DbSet<Department> departments { get; set; }
+        public DbSet<ClassTable> classtable { get; set; }
+        public DbSet<Teacher> teachers { get; set; }
+        public DbSet<Repeaters> repeaters { get; set; }
     
     }
 }
