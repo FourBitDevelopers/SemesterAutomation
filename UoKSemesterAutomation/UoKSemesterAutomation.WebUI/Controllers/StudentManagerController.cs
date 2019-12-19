@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -48,7 +49,7 @@ namespace UoKSemesterAutomation.WebUI.Controllers
 
         ////Check validation and add product in local memory
         [HttpPost]
-        public ActionResult Create(Student student)
+        public ActionResult Create(Student student, HttpPostedFileBase file)
         {
             if (!ModelState.IsValid)
             {
@@ -56,11 +57,11 @@ namespace UoKSemesterAutomation.WebUI.Controllers
             }
             else
             {
-                //if (file != null)
-                //{
-                //    product.Image = product.Id + Path.GetExtension(file.FileName);
-                //    file.SaveAs(Server.MapPath("//Content//ProductImages//" + product.Image));
-                //}
+                if (file != null)
+                {
+                    student.Image = student.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//Images//" + student.Image));
+                }
                 studentContext.Insert(student);
                 studentContext.Commit();
 
@@ -85,7 +86,7 @@ namespace UoKSemesterAutomation.WebUI.Controllers
         }
         //default template returnupdated product and id of the original product
         [HttpPost]
-        public ActionResult Edit(Student student, string Id)
+        public ActionResult Edit(Student student, string Id, HttpPostedFileBase file)
         {
             Student studentToUpdate = studentContext.Find(Id);
             if (studentToUpdate == null)
@@ -98,17 +99,16 @@ namespace UoKSemesterAutomation.WebUI.Controllers
                 {
                     return View(student);
                 }
-
-                //if (file != null)
-                //{
-                //    producToUpdate.Image = product.Id + Path.GetExtension(file.FileName);
-                //    file.SaveAs(Server.MapPath("//Content//ProductImages//" + producToUpdate.Image));
-                //}
+                if (file != null)
+                {
+                    studentToUpdate.Image = student.Id + Path.GetExtension(file.FileName);
+                    file.SaveAs(Server.MapPath("//Content//Images//" + studentToUpdate.Image));
+                }
+           
                 studentToUpdate.Department = student.Department;
                 studentToUpdate.Email = student.Email;
                 studentToUpdate.Enrolment = student.Enrolment;
                 studentToUpdate.FatherName = student.FatherName;
-                studentToUpdate.Image = student.Image;
                 studentToUpdate.Major = student.Major;
                 studentToUpdate.Name = student.Name;
                 studentToUpdate.IsRepeater = student.IsRepeater;

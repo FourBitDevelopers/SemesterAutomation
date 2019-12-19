@@ -7,15 +7,20 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","StudentManager",FormMethod.Post,new {encType = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Student</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.student.Id)
+<div class="form-horizontal">
+    <h4>Student</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.student.Id)
+    <div class="col-md-2">
+        <img class="img-responsive" src="~/Content/Images/@Model.student.Image" />
+    </div>
+
+    <div class="col-md-10">
 
         <div class="form-group">
             @Html.LabelFor(model => model.student.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -84,7 +89,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.student.Department, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-            @Html.DropDownListFor(model => model.student.Department, new SelectList(Model.departments, "DepartmentName", "DepartmentName"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.student.Department, new SelectList(Model.departments, "DepartmentName", "DepartmentName"), new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 
@@ -99,8 +104,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.student.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.student.Image, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.student.Image, "", new { @class = "text-danger" })
+                <input type="file" id="file" name="file" class="form-control" />
             </div>
         </div>
 
@@ -132,12 +136,13 @@
             </div>
         </div>
     </div>
-}
+    </div>
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
